@@ -1,0 +1,89 @@
+/**
+ * Базовые токены: сброс, фон, цвет. Текст — SF Pro Text (Regular и др. веса), не Display.
+ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Явная привязка весов к установленным начертаниям (macOS / шрифты Apple) */
+@font-face {
+    font-family: "SF Pro Text";
+    font-style: normal;
+    font-weight: 400;
+    src:
+        local("SF Pro Text Regular"),
+        local("SFProText-Regular"),
+        local(".SFProText-Regular");
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    font-style: normal;
+    font-weight: 600;
+    src:
+        local("SF Pro Text Semibold"),
+        local("SFProText-Semibold"),
+        local(".SFProText-Semibold");
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    font-style: normal;
+    font-weight: 700;
+    src:
+        local("SF Pro Text Bold"),
+        local("SFProText-Bold"),
+        local(".SFProText-Bold");
+}
+
+@font-face {
+    font-family: "SF Pro Display";
+    font-style: normal;
+    font-weight: 600;
+    src:
+        local("SF Pro Display Semibold"),
+        local("SFProDisplay-Semibold"),
+        local(".SFProDisplay-Semibold");
+}
+
+@font-face {
+    font-family: "SF Pro Display";
+    font-style: normal;
+    font-weight: 700;
+    src:
+        local("SF Pro Display Bold"),
+        local("SFProDisplay-Bold"),
+        local(".SFProDisplay-Bold");
+}
+
+body {
+    margin: 0;
+    font-family:
+        "SF Pro Text",
+        -apple-system,
+        BlinkMacSystemFont,
+        system-ui,
+        "Segoe UI",
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+    font-weight: 400;
+    font-synthesis: none;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.5;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+    font-family: inherit;
+}

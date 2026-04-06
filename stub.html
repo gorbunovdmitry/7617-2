@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('7617_2') !== '1') {
+                    location.replace('index.html');
+                }
+            } catch (e) {
+                location.replace('index.html');
+            }
+        })();
+    </script>
+    <title>Сервис пока недоступен</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/stub.css">
+</head>
+<body class="stub-page">
+    <script>window.__7617_VARIANT__ = 2;</script>
+    <script src="js/analytics.js"></script>
+    <script src="js/sheet.js"></script>
+    <script>
+        (function () {
+            try {
+                if (sessionStorage.getItem('7617_sent_v2') === '1') return;
+                const raw = sessionStorage.getItem('7617_payload_v2');
+                if (!raw) return;
+                const payload = JSON.parse(raw);
+                if (typeof window.sendToSheetJSONP === 'function') {
+                    window.sendToSheetJSONP(payload)
+                        .then(() => sessionStorage.setItem('7617_sent_v2', '1'))
+                        .catch(() => {});
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <main class="stub">
+        <img class="stub__img" src="images/img.png" alt="" width="411" height="689" decoding="async">
+        <h1 class="stub__title">Сервис пока недоступен</h1>
+        <p class="stub__text">Вся команда очень старается, скоро всё заработает!</p>
+    </main>
+    <script src="js/stub.js"></script>
+</body>
+</html>

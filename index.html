@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+        (function () {
+            try {
+                var key = '7617_2';
+                var params = new URLSearchParams(location.search);
+                if (params.get('reset') === '1') {
+                    localStorage.removeItem(key);
+                    try {
+                        sessionStorage.removeItem('7617_payload_v' + key.split('_')[1]);
+                        sessionStorage.removeItem('7617_sent_v' + key.split('_')[1]);
+                    } catch (e2) {}
+                }
+                if (localStorage.getItem(key) === '1') {
+                    location.replace('stub.html');
+                }
+            } catch (e) { /* private mode и т.п. */ }
+        })();
+    </script>
+    <title>Альфа-Тишина</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+    <div class="page-hero">
+        <img class="page-hero__img" src="images/Frame%2038.png" alt="" width="1048" height="388" decoding="async">
+    </div>
+    <div class="shell">
+        <main class="shell__main">
+            <h1 class="page-title">Альфа-Тишина</h1>
+            <p class="intro intro--muted">
+                Управляйте коммуникациями с банком, выбрав нужный режим. Изменить его сможете в любое время.
+                В список коммуникаций входят: push, смс, звонки от банка, а также предложения по продуктам на экранах
+            </p>
+
+            <div class="mode-cards" role="radiogroup" aria-label="Режим тишины">
+                <label class="mode-card">
+                    <div class="mode-card__content">
+                        <span class="mode-card__title">Умная Тишина</span>
+                        <ul class="mode-card__list">
+                            <li>Предложения по моим продуктам</li>
+                            <li>Новые рекомендации не чаще двух раз в месяц</li>
+                            <li>Важные уведомления</li>
+                        </ul>
+                    </div>
+                    <input class="mode-card__radio" type="radio" name="silence-mode" value="smart">
+                </label>
+
+                <label class="mode-card">
+                    <div class="mode-card__content">
+                        <span class="mode-card__title">Моя Тишина</span>
+                        <ul class="mode-card__list">
+                            <li>Предложения по моим продуктам</li>
+                            <li>Важные уведомления</li>
+                        </ul>
+                        <span class="mode-card__badge">Оптимальный</span>
+                    </div>
+                    <input class="mode-card__radio" type="radio" name="silence-mode" value="my" checked>
+                </label>
+
+                <label class="mode-card">
+                    <div class="mode-card__content">
+                        <span class="mode-card__title">Полная Тишина</span>
+                        <ul class="mode-card__list">
+                            <li>Только важные уведомления</li>
+                        </ul>
+                    </div>
+                    <input class="mode-card__radio" type="radio" name="silence-mode" value="full">
+                </label>
+            </div>
+        </main>
+
+        <footer class="footer-cta">
+            <button type="button" class="btn-primary" id="activate">Активировать</button>
+        </footer>
+    </div>
+    <script>window.__7617_VARIANT__ = 2;</script>
+    <script src="js/analytics.js"></script>
+    <script src="js/sheet.js"></script>
+    <script>
+        document.getElementById('activate').addEventListener('click', function () {
+            if (typeof window.track7617ContinueClick === 'function') {
+                window.track7617ContinueClick();
+            }
+            try {
+                const selectedEl = document.querySelector('input[name="silence-mode"]:checked');
+                const selected = selectedEl ? selectedEl.value : '';
+                const payload = {
+                    variant: 2,
+                    push: 0, sms: 0, email: 0, calls: 0,
+                    inAppOffers: 0,
+                    cards: 0, credit: 0, invest: 0, finServices: 0, lifeServices: 0, newFeatures: 0,
+                    smartSilence: selected === 'smart' ? 1 : 0,
+                    mySilence: selected === 'my' ? 1 : 0,
+                    fullSilence: selected === 'full' ? 1 : 0,
+                    upTo20: 0, upTo10: 0, upTo5: 0
+                };
+                sessionStorage.setItem('7617_payload_v2', JSON.stringify(payload));
+                sessionStorage.removeItem('7617_sent_v2');
+            } catch (e) {}
+            try {
+                localStorage.setItem('7617_2', '1');
+            } catch (e) {}
+            location.replace('stub.html');
+        });
+    </script>
+</body>
+</html>
