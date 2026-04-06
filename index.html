@@ -31,25 +31,13 @@
     </div>
     <div class="shell">
         <main class="shell__main">
-            <h1 class="page-title">Альфа-Тишина</h1>
+            <h1 class="page-title">Комфортное общение</h1>
             <p class="intro intro--muted">
                 Управляйте коммуникациями с банком, выбрав нужный режим. Изменить его сможете в любое время.
                 В список коммуникаций входят: push, смс, звонки от банка, а также предложения по продуктам на экранах
             </p>
 
             <div class="mode-cards" role="radiogroup" aria-label="Режим тишины">
-                <label class="mode-card">
-                    <div class="mode-card__content">
-                        <span class="mode-card__title">Умная Тишина</span>
-                        <ul class="mode-card__list">
-                            <li>Предложения по моим продуктам</li>
-                            <li>Новые рекомендации не чаще двух раз в месяц</li>
-                            <li>Важные уведомления</li>
-                        </ul>
-                    </div>
-                    <input class="mode-card__radio" type="radio" name="silence-mode" value="smart">
-                </label>
-
                 <label class="mode-card">
                     <div class="mode-card__content">
                         <span class="mode-card__title">Моя Тишина</span>
@@ -60,6 +48,18 @@
                         <span class="mode-card__badge">Оптимальный</span>
                     </div>
                     <input class="mode-card__radio" type="radio" name="silence-mode" value="my" checked>
+                </label>
+
+                <label class="mode-card">
+                    <div class="mode-card__content">
+                        <span class="mode-card__title">Умная Тишина</span>
+                        <ul class="mode-card__list">
+                            <li>Предложения по моим продуктам</li>
+                            <li>Новые рекомендации не чаще двух раз в месяц</li>
+                            <li>Важные уведомления</li>
+                        </ul>
+                    </div>
+                    <input class="mode-card__radio" type="radio" name="silence-mode" value="smart">
                 </label>
 
                 <label class="mode-card">
